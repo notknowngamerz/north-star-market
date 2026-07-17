@@ -6,5 +6,6 @@ desktop.ini
 .vscode/
 # Cloudflare Wrangler
 .dev.vars
+.wrangler/
 worker/.wrangler/
 *.tfstate
