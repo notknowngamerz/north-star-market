@@ -1,6 +1,7 @@
 name = "northstar-requests"
 main = "requests.js"
 compatibility_date = "2024-09-23"
+account_id = "0fe389b215479eef5c8f767262ac479b"
 
 # KV namespace for storing submissions.
 [[kv_namespaces]]
