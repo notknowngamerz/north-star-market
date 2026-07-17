@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumen Academy — Light the way forward</title>
+<link rel="stylesheet" href="site-pages.css">
+<style>
+.landing-hero{padding:90px 0 60px;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end}
+.landing-hero h1{font-size:clamp(49px,7.6vw,91px);line-height:.88;letter-spacing:-.085em;margin:17px 0 0}
+.landing-hero h1 em{font-style:normal;color:var(--accent)}
+.landing-hero .hero-copy{color:var(--muted);font-size:17px;max-width:380px;margin:0}
+.landing-hero .hero-note{margin-top:23px;border-top:1px solid var(--line);padding-top:11px;font-size:11px;color:var(--muted)}
+.cta-row{display:flex;gap:11px;margin-top:25px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:9px;border:1px solid var(--line);font-weight:bold;font-size:13px;cursor:pointer}
+.btn-primary{background:var(--accent);color:#0a1a2a;border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent2)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.courses-section{padding:70px 0;border-top:1px solid var(--line)}
+.courses-section .section-header{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px}
+.courses-section h2{font-size:clamp(32px,4.5vw,54px);letter-spacing:-.07em;line-height:.95;margin:0}
+.courses-section .section-link{font-size:12px;color:var(--accent);border:1px solid var(--line);padding:7px 12px;border-radius:9px}
+.courses-section .section-link:hover{background:var(--accent);color:#0a1a2a}
+.course-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.course-card{border:1px solid var(--line);background:var(--paper);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.course-art{height:180px;position:relative;overflow:hidden}
+.course-art.art-code{background:linear-gradient(135deg,#0d2a45 0%,#1a3f5f 100%)}
+.course-art.art-design{background:linear-gradient(135deg,#1a2a4a 0%,#2a4060 100%)}
+.course-art.art-data{background:linear-gradient(135deg,#0f2a3f 0%,#1a3a55 100%)}
+.css-book{position:absolute;left:20%;top:18%;width:60px;height:48px;border:3px solid var(--accent);border-radius:3px 8px 8px 3px}
+.css-book:before{content:"";position:absolute;left:4px;top:8px;width:36px;height:2px;background:var(--accent2);box-shadow:0 7px 0 var(--accent2),0 14px 0 var(--accent2),0 21px 0 var(--accent2),0 28px 0 var(--accent2)}
+.css-book:after{content:"</>";position:absolute;right:14px;bottom:6px;font-size:10px;color:var(--accent);font-weight:bold;letter-spacing:-.03em}
+.css-screen{position:absolute;right:12%;top:20%;width:72px;height:55px;border:3px solid var(--accent2);border-radius:5px}
+.css-screen:before{content:"{ }";position:absolute;left:8px;top:8px;font-size:9px;color:var(--accent);font-weight:bold;letter-spacing:.05em}
+.css-screen:after{content:"";position:absolute;left:8px;bottom:10px;width:30px;height:3px;background:var(--accent);border-radius:2px;box-shadow:0 -6px 0 var(--accent2)}
+.css-palette{position:absolute;left:15%;top:22%;width:55px;height:55px;border:3px solid var(--accent);border-radius:50%}
+.css-palette:before{content:"";position:absolute;left:12px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:14px 0 0 var(--accent),14px 14px 0 var(--accent2)}
+.css-palette:after{content:"";position:absolute;left:12px;top:22px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.css-pen{position:absolute;right:14%;top:18%;width:6px;height:50px;background:var(--accent2);border-radius:0 0 3px 3px;transform:rotate(-15deg)}
+.css-pen:before{content:"";position:absolute;bottom:-8px;left:-2px;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:10px solid var(--accent2)}
+.css-chart{position:absolute;left:18%;top:25%;width:60px;height:50px;display:flex;align-items:flex-end;gap:5px}
+.css-bar{width:10px;border-radius:3px 3px 0 0;background:var(--accent)}
+.css-bar:nth-child(1){height:18px;opacity:.6}
+.css-bar:nth-child(2){height:30px;opacity:.8}
+.css-bar:nth-child(3){height:22px;opacity:.7}
+.css-bar:nth-child(4){height:42px}
+.css-bar:nth-child(5){height:35px;opacity:.9}
+.css-dots{position:absolute;right:15%;top:28%;display:grid;grid-template-columns:repeat(3,8px);gap:6px}
+.css-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2)}
+.css-dot:nth-child(2),.css-dot:nth-child(4){background:var(--accent)}
+.course-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.course-tag{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.course-body h3{font-size:22px;letter-spacing:-.05em;line-height:1;margin:0 0 8px}
+.course-body p{font-size:13px;color:var(--muted);margin:0 0 16px;flex:1}
+.course-meta{display:flex;gap:16px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.course-meta span{display:flex;align-items:center;gap:4px}
+.path-section{padding:70px 0;border-top:1px solid var(--line)}
+.path-section h2{font-size:clamp(32px,4.5vw,54px);letter-spacing:-.07em;line-height:.95;margin:0 0 35px}
+.path-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+.path-steps:before{content:"";position:absolute;top:28px;left:12%;right:12%;height:2px;background:var(--line)}
+.path-step{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px;text-align:center;position:relative}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#0a1a2a;font-weight:bold;font-size:14px;display:grid;place-items:center;margin:0 auto 14px}
+.path-step h3{font-size:16px;letter-spacing:-.04em;margin:0 0 6px}
+.path-step p{font-size:12px;color:var(--muted);margin:0}
+.testimonials-section{padding:70px 0;border-top:1px solid var(--line)}
+.testimonials-section h2{font-size:clamp(32px,4.5vw,54px);letter-spacing:-.07em;line-height:.95;margin:0 0 35px}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testimonial{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px}
+.testimonial-text{font-size:14px;line-height:1.6;margin:0 0 16px;color:var(--ink)}
+.testimonial-author{display:flex;align-items:center;gap:10px}
+.author-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:bold;font-size:12px;color:#0a1a2a}
+.testimonial-author div{font-size:12px}
+.testimonial-author strong{display:block;color:var(--ink)}
+.testimonial-author span{color:var(--muted)}
+.cta-section{padding:70px 0;border-top:1px solid var(--line);text-align:center}
+.cta-section h2{font-size:clamp(38px,5.5vw,68px);letter-spacing:-.07em;line-height:.93;margin:0 auto 16px;max-width:700px}
+.cta-section p{color:var(--muted);font-size:17px;max-width:450px;margin:0 auto 25px}
+.cta-box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:40px;max-width:600px;margin:0 auto;text-align:center}
+.cta-box .proof{font-size:11px;color:var(--muted);margin-top:14px}
+@media(max-width:720px){.landing-hero{grid-template-columns:1fr;gap:25px;padding:55px 0 40px}.course-cards{grid-template-columns:1fr}.path-steps{grid-template-columns:1fr 1fr}.path-steps:before{display:none}.testimonial-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="spark">
+<header class="wrap site-header">
+<a class="wordmark" href="spark-courses.html">LUMEN <i>ACADEMY</i></a>
+<nav class="site-nav">
+<a class="active" href="spark-courses.html">Courses</a>
+<a href="spark-curriculum.html">Curriculum</a>
+<a href="spark-instructors.html">Instructors</a>
+<a href="spark-enroll.html">Enroll</a>
+</nav>
+<a class="back" href="/">&larr; All websites</a>
+</header>
+<main>
+<section class="wrap landing-hero">
+<div>
+<div class="eyebrow">Online learning, illuminated</div>
+<h1>Light the way <em>forward.</em></h1>
+<p class="hero-copy">Lumen Academy offers structured courses in web development, design systems, and data science — built by practitioners, designed for depth, and paced for real progress.</p>
+<div class="cta-row">
+<a class="btn btn-primary" href="spark-enroll.html">Start learning &rarr;</a>
+<a class="btn btn-ghost" href="spark-curriculum.html">View curriculum</a>
+</div>
+<p class="hero-note">A complete local page in the Lumen Academy website collection.</p>
+</div>
+<div>
+<p class="hero-copy">Whether you are switching careers, sharpening your stack, or learning from scratch, our courses meet you where you are and take you further than you expected.</p>
+<p class="hero-copy" style="margin-top:12px">Over 2,400 students have completed a Lumen course. Our completion rate is 78% — three times the industry average.</p>
+</div>
+</section>
+
+<section class="courses-section">
+<div class="wrap">
+<div class="section-header">
+<h2>Featured courses</h2>
+<a class="section-link" href="spark-curriculum.html">All modules &rarr;</a>
+</div>
+<div class="course-cards">
+<article class="course-card">
+<div class="course-art art-code">
+<div class="css-book"></div>
+<div class="css-screen"></div>
+</div>
+<div class="course-body">
+<div class="course-tag">Development</div>
+<h3>Full-Stack Web Development</h3>
+<p>From HTTP to deployment — build real applications with modern frameworks, APIs, and databases. Twelve guided projects, one capstone.</p>
+<div class="course-meta">
+<span>48 lessons</span>
+<span>12 weeks</span>
+<span>Intermediate</span>
+</div>
+</div>
+</article>
+<article class="course-card">
+<div class="course-art art-design">
+<div class="css-palette"></div>
+<div class="css-pen"></div>
+</div>
+<div class="course-body">
+<div class="course-tag">Design</div>
+<h3>Design Systems &amp; Visual Thinking</h3>
+<p>Learn to think in systems — tokens, components, patterns, and the principles that make interfaces coherent and beautiful.</p>
+<div class="course-meta">
+<span>36 lessons</span>
+<span>10 weeks</span>
+<span>Beginner</span>
+</div>
+</div>
+</article>
+<article class="course-card">
+<div class="course-art art-data">
+<div class="css-chart">
+<div class="css-bar"></div>
+<div class="css-bar"></div>
+<div class="css-bar"></div>
+<div class="css-bar"></div>
+<div class="css-bar"></div>
+</div>
+<div class="css-dots">
+<div class="css-dot"></div>
+<div class="css-dot"></div>
+<div class="css-dot"></div>
+<div class="css-dot"></div>
+<div class="css-dot"></div>
+<div class="css-dot"></div>
+<div class="css-dot"></div>
+<div class="css-dot"></div>
+<div class="css-dot"></div>
+</div>
+</div>
+<div class="course-body">
+<div class="course-tag">Data Science</div>
+<h3>Data Analysis &amp; Visualization</h3>
+<p>Clean, explore, and communicate data with confidence. Python, pandas, and storytelling with charts that actually mean something.</p>
+<div class="course-meta">
+<span>42 lessons</span>
+<span>11 weeks</span>
+<span>Intermediate</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="path-section">
+<div class="wrap">
+<h2>A clear path from <em>curious</em> to capable.</h2>
+<div class="path-steps">
+<div class="path-step">
+<div class="step-num">1</div>
+<h3>Foundations</h3>
+<p>Core concepts, tools, and mental models. No assumptions about prior experience.</p>
+</div>
+<div class="path-step">
+<div class="step-num">2</div>
+<h3>Practice</h3>
+<p>Guided projects with real constraints. Build, break, and rebuild with feedback.</p>
+</div>
+<div class="path-step">
+<div class="step-num">3</div>
+<h3>Specialize</h3>
+<p>Choose your track. Go deeper into the area that matters most to your work.</p>
+</div>
+<div class="path-step">
+<div class="step-num">4</div>
+<h3>Capstone</h3>
+<p>Ship a complete project. Portfolio-ready, reviewed by instructors and peers.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="testimonials-section">
+<div class="wrap">
+<h2>What students are saying.</h2>
+<div class="testimonial-grid">
+<article class="testimonial">
+<p class="testimonial-text">"I tried three other platforms before Lumen. The difference is structure — every lesson builds on the last, and nothing feels like filler. I went from HTML basics to deploying a full app in four months."</p>
+<div class="testimonial-author">
+<div class="author-avatar" style="background:var(--accent)">MR</div>
+<div><strong>Maria Reyes</strong><span>Career switcher, now a junior developer</span></div>
+</div>
+</article>
+<article class="testimonial">
+<p class="testimonial-text">"The design systems course changed how I think about my job. I used to just make things look nice — now I build things that scale. My team noticed immediately."</p>
+<div class="testimonial-author">
+<div class="author-avatar" style="background:var(--accent2)">JK</div>
+<div><strong>James Kofi</strong><span>Product designer, 4 years experience</span></div>
+</div>
+</article>
+<article class="testimonial">
+<p class="testimonial-text">"The data course is genuinely practical. No toy datasets, no hand-waving. I used the capstone project in a real job interview and got the offer."</p>
+<div class="testimonial-author">
+<div class="author-avatar" style="background:var(--accent)">SL</div>
+<div><strong>Sara Lindqvist</strong><span>Data analyst, logistics industry</span></div>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="cta-section">
+<div class="wrap">
+<h2>Ready to start <em>building?</em></h2>
+<p>Join the next cohort. No prerequisites except curiosity and a willingness to sit with hard problems.</p>
+<div class="cta-box">
+<a class="btn btn-primary" href="spark-enroll.html" style="width:100%">Enroll now &rarr;</a>
+<p class="proof">Next cohort starts April 2026 &middot; 120 seats &middot; 78% completion rate</p>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<span>&copy; 2026 Lumen Academy &middot; Independent website &middot; Demo template</span>
+<a href="spark-courses.html">Home</a>
+<a href="/">&larr; All websites</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kinetic Studio — Move with purpose</title><link rel="stylesheet" href="site-pages.css"><style>
+.schedule{margin-top:60px;padding:37px;background:var(--paper);border:1px solid var(--line)}
+.schedule h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.07em;line-height:.95;margin:0 0 24px}
+.schedule-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.slot{padding:16px;border:1px solid var(--line);font-size:12px}
+.slot .time{font-weight:bold;font-size:13px;margin-bottom:4px}
+.slot .class-name{color:var(--accent);font-weight:bold}
+.slot .trainer{color:var(--muted);margin-top:4px}
+.programs{margin-top:60px}
+.programs h2{font-size:clamp(30px,4.4vw,53px);letter-spacing:-.07em;line-height:.95;margin:0 0 32px}
+.program-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.program-card{border:1px solid var(--line);padding:26px;background:var(--paper);display:flex;flex-direction:column;justify-content:space-between;min-height:340px;position:relative;overflow:hidden}
+.program-card h3{font-size:24px;letter-spacing:-.05em;margin:0 0 8px}
+.program-card p{color:var(--muted);font-size:14px;margin:0}
+.program-card .tag{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.program-card .css-art{position:absolute;bottom:0;right:0;width:120px;height:120px;opacity:.25}
+/* CSS art: heartbeat pulse */
+.art-pulse{position:relative}
+.art-pulse::before{content:"";position:absolute;bottom:20px;right:10px;width:80px;height:80px;border:3px solid var(--accent);border-radius:50%;animation:beat 1.5s ease-in-out infinite}
+.art-pulse::after{content:"";position:absolute;bottom:40px;right:30px;width:40px;height:40px;background:var(--accent2);border-radius:50%;animation:beat 1.5s ease-in-out infinite .2s}
+@keyframes beat{0%,100%{transform:scale(1);opacity:.25}50%{transform:scale(1.15);opacity:.5}}
+/* CSS art: dumbbell */
+.art-lift{position:relative}
+.art-lift::before{content:"";position:absolute;bottom:30px;right:20px;width:60px;height:12px;background:var(--accent);border-radius:6px;transform:rotate(-30deg)}
+.art-lift::after{content:"";position:absolute;bottom:22px;right:12px;width:20px;height:28px;border:4px solid var(--accent2);border-radius:4px;transform:rotate(-30deg)}
+/* CSS art: running figure */
+.art-run{position:relative}
+.art-run::before{content:"";position:absolute;bottom:20px;right:25px;width:30px;height:30px;border:4px solid var(--accent);border-radius:50%}
+.art-run::after{content:"";position:absolute;bottom:10px;right:40px;width:4px;height:50px;background:var(--accent2);transform:rotate(15deg);border-radius:2px}
+.tiers{margin-top:60px}
+.tiers h2{font-size:clamp(30px,4.4vw,53px);letter-spacing:-.07em;line-height:.95;margin:0 0 32px}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tier{border:1px solid var(--line);padding:30px;background:var(--paper);display:flex;flex-direction:column}
+.tier.popular{border-color:var(--accent);position:relative}
+.tier.popular::before{content:"MOST POPULAR";position:absolute;top:-10px;left:20px;background:var(--accent);color:#1a0c0a;font-size:9px;font-weight:bold;letter-spacing:.12em;padding:3px 10px}
+.tier .tier-name{font-size:22px;letter-spacing:-.05em;margin:0 0 4px}
+.tier .tier-price{font-size:38px;letter-spacing:-.06em;font-weight:900;margin:0 0 4px}
+.tier .tier-price span{font-size:14px;color:var(--muted);font-weight:normal}
+.tier .tier-desc{color:var(--muted);font-size:13px;margin:0 0 18px}
+.tier ul{list-style:none;padding:0;margin:0 0 22px;flex:1}
+.tier ul li{font-size:13px;padding:7px 0;border-top:1px solid var(--line)}
+.tier a{display:block;text-align:center;padding:12px;border:1px solid var(--line);font-size:12px;font-weight:bold;letter-spacing:.05em}
+.tier a:hover{background:var(--accent);color:#1a0c0a;border-color:var(--accent)}
+.tier.popular a{background:var(--accent);color:#1a0c0a;border-color:var(--accent)}
+.cta-section{margin-top:60px;padding:55px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.cta-section h2{font-size:clamp(32px,5vw,60px);letter-spacing:-.07em;line-height:.92;margin:0 0 14px}
+.cta-section p{color:var(--muted);font-size:17px;max-width:480px;margin:0 auto 28px}
+.cta-btn{display:inline-block;background:var(--accent);color:#1a0c0a;padding:14px 36px;font-weight:bold;font-size:14px;letter-spacing:.04em}
+.cta-btn:hover{background:var(--accent2)}
+@media(max-width:720px){.schedule-grid{grid-template-columns:1fr 1fr}.program-cards,.tier-grid{grid-template-columns:1fr}.program-card{min-height:240px}}
+</style></head><body class="pulse"><header class="wrap site-header"><a class="wordmark" href="pulse-training.html">KINETIC <i>STUDIO</i></a><nav class="site-nav"><a class="active" href="pulse-training.html">Training</a><a href="pulse-classes.html">Classes</a><a href="pulse-trainers.html">Trainers</a><a href="pulse-join.html">Join</a></nav><a class="back" href="/">← All websites</a></header><main><section class="wrap hero"><div><div class="eyebrow">Move with purpose</div><h1>Sweat.<br>Build.<br><em>Become.</em></h1></div><div><p class="hero-copy">Kinetic Studio is where intensity meets intention. Train hard, recover smart, and unlock the strongest version of yourself.</p><p class="hero-note">A complete fitness website in the Kinetic Studio collection.</p></div></section><section class="content"><div class="wrap"><div class="intro"><h2>Your body is capable of more than you think. We prove it every day.</h2><div><p>From high-intensity circuits to mindful recovery, Kinetic Studio delivers programs designed by elite coaches and backed by science. No gimmicks — just results.</p><p>Every session is structured, every movement intentional. Whether you are a beginner or a seasoned athlete, this is where progress becomes inevitable.</p></div></div><div class="schedule"><h2>This week's schedule</h2><div class="schedule-grid"><div class="slot"><div class="time">6:00 AM</div><div class="class-name">HIIT Burn</div><div class="trainer">with Marcus R.</div></div><div class="slot"><div class="time">7:30 AM</div><div class="class-name">Power Yoga</div><div class="trainer">with Lena K.</div></div><div class="slot"><div class="time">9:00 AM</div><div class="class-name">Strength Lab</div><div class="trainer">with Dominic T.</div></div><div class="slot"><div class="time">10:30 AM</div><div class="class-name">Spin Surge</div><div class="trainer">with Ava M.</div></div><div class="slot"><div class="time">12:00 PM</div><div class="class-name">Pilates Core</div><div class="trainer">with Lena K.</div></div><div class="slot"><div class="time">5:30 PM</div><div class="class-name">Boxing Fundamentals</div><div class="trainer">with Marcus R.</div></div><div class="slot"><div class="time">6:30 PM</div><div class="class-name">HIIT Burn</div><div class="trainer">with Dominic T.</div></div><div class="slot"><div class="time">7:30 PM</div><div class="class-name">Recovery Flow</div><div class="trainer">with Lena K.</div></div></div></div><div class="programs"><h2>Featured programs</h2><div class="program-cards"><article class="program-card art-pulse"><div><div class="tag">Cardio + Endurance</div><h3>Heartbeat</h3><p>A pulse-pounding program built around interval training, sprint work, and metabolic conditioning. Designed to push your cardiovascular limits and torch calories long after the session ends.</p></div></article><article class="program-card art-lift"><div><div class="tag">Strength + Power</div><h3>Iron Will</h3><p>Progressive overload meets precision. Compound lifts, accessory work, and periodized programming that builds raw strength and functional power from the ground up.</p></div></article><article class="program-card art-run"><div><div class="tag">Agility + Speed</div><h3>Fast Track</h3><p>Explosive movement, plyometrics, and agility drills that make you quicker on your feet. Perfect for athletes who need speed and responsiveness in their sport.</p></div></article></div></div><div class="tiers"><h2>Membership tiers</h2><div class="tier-grid"><div class="tier"><h3 class="tier-name">Starter</h3><p class="tier-price">$49<span>/month</span></p><p class="tier-desc">Get moving with the essentials.</p><ul><li>Unlimited group classes</li><li>Locker room access</li><li>Kinetic app access</li><li>2 guest passes per month</li></ul><a href="pulse-join.html">Choose Starter →</a></div><div class="tier popular"><h3 class="tier-name">Performance</h3><p class="tier-price">$89<span>/month</span></p><p class="tier-desc">For those who want more from every session.</p><ul><li>Everything in Starter</li><li>2 personal training sessions/month</li><li>Nutrition guidance</li><li>InBody composition scan</li><li>Priority class booking</li></ul><a href="pulse-join.html">Choose Performance →</a></div><div class="tier"><h3 class="tier-name">Elite</h3><p class="tier-price">$149<span>/month</span></p><p class="tier-desc">The ultimate Kinetic experience.</p><ul><li>Everything in Performance</li><li>Unlimited personal training</li><li>Recovery suite access</li><li>Custom training plan</li><li>Monthly movement screening</li></ul><a href="pulse-join.html">Choose Elite →</a></div></div></div><div class="quote">"The only bad workout is the one that didn't happen."<small>— Kinetic Studio</small></div></div></section><section class="cta-section"><div class="wrap"><h2>Ready to <em>move?</em></h2><p>Your first class is free. Step into Kinetic Studio and see what you are made of.</p><a class="cta-btn" href="pulse-join.html">Start your free class →</a></div></section></main><footer class="wrap footer"><span>© 2026 Kinetic Studio · Independent website · Demo template</span><a href="pulse-training.html">Home</a><a href="/">← All websites</a></footer></body></html>

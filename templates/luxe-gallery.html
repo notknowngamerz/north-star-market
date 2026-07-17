@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aperture & Co — Photography Studio</title><link rel="stylesheet" href="site-pages.css"><style>
+.luxe{--bg:#1a1614;--ink:#f5f0eb;--paper:#2a2420;--accent:#b8a080;--accent2:#d4c4a8;--line:rgba(255,255,255,.15);--muted:#a09080}
+.poster{min-height:680px;position:relative;overflow:hidden;padding:60px 0;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(ellipse at 70% 40%,#3a2e24 0,transparent 50%),radial-gradient(ellipse at 20% 70%,#2a2018 0,transparent 40%)}
+.poster .lens{position:absolute;right:8%;top:12%;width:340px;height:340px;border-radius:50%;border:3px solid var(--accent);opacity:.35}
+.poster .lens::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:180px;height:180px;border-radius:50%;border:2px solid var(--accent2);opacity:.5}
+.poster .lens::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:var(--accent);opacity:.18}
+.poster .bokeh{position:absolute;border-radius:50%;opacity:.12}
+.poster .bokeh.b1{width:120px;height:120px;background:var(--accent2);left:15%;top:20%}
+.poster .bokeh.b2{width:80px;height:80px;background:var(--accent);right:25%;bottom:25%}
+.poster .bokeh.b3{width:55px;height:55px;background:var(--accent2);left:45%;top:60%}
+.poster .bokeh.b4{width:40px;height:40px;background:var(--accent);left:60%;top:15%;opacity:.2}
+.poster>*{position:relative;z-index:1}
+.poster-top{font-size:11px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cinema-title{font-size:clamp(62px,11vw,145px);font-weight:900;line-height:.82;letter-spacing:-.1em;margin:0}
+.cinema-title span{display:block;color:var(--accent)}
+.poster-bottom{display:flex;justify-content:space-between;align-items:end;gap:30px}
+.poster-bottom p{font-size:17px;max-width:340px;color:var(--muted);line-height:1.5}
+.poster-cta{display:inline-block;border:1px solid var(--accent);padding:14px 22px;font-size:12px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);transition:all .2s}
+.poster-cta:hover{background:var(--accent);color:var(--bg)}
+.gallery-section{padding:80px 0;border-top:1px solid var(--line)}
+.gallery-section .section-label{font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.gallery-section h2{font-size:clamp(32px,4.4vw,52px);letter-spacing:-.07em;line-height:.95;margin:0 0 50px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-card{padding:26px;min-height:260px;border:1px solid var(--line);background:var(--paper);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:border-color .2s}
+.gallery-card:hover{border-color:var(--accent)}
+.gallery-card .card-visual{position:absolute;right:-20px;bottom:-20px;opacity:.12}
+.gallery-card .card-visual.landscape{width:160px;height:110px;border:3px solid var(--accent2);border-radius:4px;transform:rotate(-8deg)}
+.gallery-card .card-visual.landscape::before{content:"";position:absolute;left:15%;top:20%;width:40%;height:50%;background:var(--accent);border-radius:2px}
+.gallery-card .card-visual.portrait{width:90px;height:130px;border:3px solid var(--accent);border-radius:4px;transform:rotate(5deg)}
+.gallery-card .card-visual.portrait::before{content:"";position:absolute;left:20%;top:15%;width:55%;height:35%;background:var(--accent2);border-radius:2px}
+.gallery-card .card-visual.frame{width:130px;height:100px;border:4px solid var(--accent);transform:rotate(-3deg)}
+.gallery-card .card-visual.frame::before{content:"";position:absolute;inset:8px;border:1px solid var(--accent2)}
+.gallery-card .card-visual.frame::after{content:"";position:absolute;left:25%;top:30%;width:35%;height:25%;background:var(--accent2);opacity:.4}
+.gallery-card .tag{font-size:10px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.gallery-card h3{font-size:24px;letter-spacing:-.05em;line-height:1;margin:22px 0 6px}
+.gallery-card p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
+.collections{padding:80px 0;border-top:1px solid var(--line)}
+.collections-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.collections-grid h2{font-size:clamp(34px,5vw,60px);line-height:.92;letter-spacing:-.08em;margin:0}
+.collections-grid p{color:var(--muted);font-size:17px;margin:12px 0}
+.collection-list{margin:20px 0 0;padding:0;list-style:none}
+.collection-list li{border-top:1px solid var(--line);padding:14px 0;font-size:15px;display:flex;justify-content:space-between;gap:15px}
+.collection-list li span{color:var(--muted);font-size:12px}
+.collection-visual{min-height:320px;background:var(--paper);border:1px solid var(--line);position:relative;overflow:hidden}
+.collection-visual .cv-frame{position:absolute;left:10%;top:8%;width:55%;height:70%;border:2px solid var(--accent2);opacity:.25;transform:rotate(-2deg)}
+.collection-visual .cv-circle{position:absolute;right:12%;top:18%;width:140px;height:140px;border-radius:50%;border:2px solid var(--accent);opacity:.2}
+.collection-visual .cv-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--accent);opacity:.35}
+.collection-visual .cv-dot.d1{left:30%;top:55%}
+.collection-visual .cv-dot.d2{right:20%;top:65%}
+.collection-visual .cv-dot.d3{left:50%;top:25%}
+.statement{padding:80px 0;border-top:1px solid var(--line)}
+.statement blockquote{font-size:clamp(26px,3.7vw,44px);line-height:1.06;letter-spacing:-.06em;max-width:800px;margin:0}
+.statement blockquote small{font-size:12px;color:var(--muted);letter-spacing:0;display:block;margin-top:20px;font-weight:normal}
+.cta-section{padding:80px 0;border-top:1px solid var(--line);text-align:center}
+.cta-section h2{font-size:clamp(40px,6vw,72px);line-height:.9;letter-spacing:-.08em;margin:0}
+.cta-section p{color:var(--muted);font-size:17px;max-width:440px;margin:18px auto 30px}
+.cta-btn{display:inline-block;background:var(--accent);color:var(--bg);padding:14px 28px;font-weight:bold;font-size:13px;letter-spacing:.05em;text-transform:uppercase;transition:opacity .2s}
+.cta-btn:hover{opacity:.85}
+@media(max-width:720px){.poster{min-height:520px}.poster-bottom{flex-direction:column;align-items:start}.gallery-grid{grid-template-columns:1fr}.gallery-card{min-height:180px}.collections-grid{grid-template-columns:1fr;gap:30px}.collection-visual{min-height:240px}.site-nav{display:none}}
+</style></head><body class="luxe"><header class="wrap site-header"><a class="wordmark" href="luxe-gallery.html">APERTURE <i>&</i> CO</a><nav class="site-nav"><a class="active" href="luxe-gallery.html">Gallery</a><a href="luxe-portfolio.html">Portfolio</a><a href="luxe-prints.html">Prints</a><a href="luxe-book.html">Book</a></nav><a class="back" href="/">← All websites</a></header><main><section class="poster"><div class="wrap poster-top">Photography Studio · Est. 2018</div><div class="wrap"><h1 class="cinema-title">Where light<span>tells stories.</span></h1></div><div class="wrap poster-bottom"><p>We chase the moment between shadow and revelation — portraits, landscapes, and still frames that hold more than what the eye first sees.</p><a class="poster-cta" href="luxe-portfolio.html">View portfolio →</a></div><i class="lens"></i><i class="bokeh b1"></i><i class="bokeh b2"></i><i class="bokeh b3"></i><i class="bokeh b4"></i></section><section class="gallery-section"><div class="wrap"><div class="section-label">Featured work</div><h2>Three ways of seeing.</h2><div class="gallery-grid"><article class="gallery-card"><span class="tag">Portrait series</span><div><h3>The Quiet Hour</h3><p>Intimate portraits captured in the last light of day, when faces carry the weight and warmth of everything that came before.</p></div><i class="card-visual portrait"></i></article><article class="gallery-card"><span class="tag">Landscape</span><div><h3>Distant Meridians</h3><p>Vast terrains and forgotten roads — landscapes that feel like memories of places you have never been but somehow recognise.</p></div><i class="card-visual landscape"></i></article><article class="gallery-card"><span class="tag">Still life</span><div><h3>Arranged Silence</h3><p>Objects in conversation: ceramics, textiles, botanicals — composed with patience and an eye for the quiet relationship between things.</p></div><i class="card-visual frame"></i></article></div></div></section><section class="collections"><div class="wrap collections-grid"><div><div class="section-label">Collections</div><h2>Six bodies of work, each a world of its own.</h2><p>From the intimacy of portraiture to the grand silence of open landscapes, every collection is a deliberate journey through light, texture, and emotion.</p><ul class="collection-list"><li><b>The Quiet Hour</b><span>12 photographs · 2024</span></li><li><b>Distant Meridians</b><span>18 photographs · 2023</span></li><li><b>Arranged Silence</b><span>14 photographs · 2023</span></li><li><b>Veiled Architecture</b><span>20 photographs · 2022</span></li><li><b>After the Rain</b><span>16 photographs · 2022</span></li><li><b>Ember & Dust</b><span>22 photographs · 2021</span></li></ul></div><div class="collection-visual"><i class="cv-frame"></i><i class="cv-circle"></i><i class="cv-dot d1"></i><i class="cv-dot d2"></i><i class="cv-dot d3"></i></div></div></section><section class="statement"><div class="wrap"><blockquote>"I do not take photographs — I wait for them. The best images arrive when the subject forgets the camera is there, and the light decides to stay a little longer than it should."<small>— Amara Osei, Founder & Lead Photographer, Aperture & Co</small></blockquote></div></section><section class="cta-section"><div class="wrap"><h2>Let us capture <em>your</em> story.</h2><p>Whether it is a wedding, a brand identity, or a personal portrait — we would love to hear what you have in mind.</p><a class="cta-btn" href="luxe-book.html">Book a session →</a></div></section></main><footer class="wrap footer"><span>© 2026 Aperture & Co · Photography Studio · Demo template</span><div><a href="luxe-gallery.html">Home</a> <a href="/">← All websites</a></div></footer></body></html>

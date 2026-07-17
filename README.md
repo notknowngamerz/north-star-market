@@ -4,8 +4,8 @@ A local-first marketplace of ready-to-explore website demos. Each template is a 
 
 ## What's inside
 
-- `index.html` — the storefront that showcases six website concepts.
-- `templates/` — 24 static demo pages across six brands (Portfolio, SaaS, Shop, Food, Agency, Events).
+- `index.html` — the storefront that showcases eleven website concepts.
+- `templates/` — 44 static demo pages across eleven brands (Portfolio, SaaS, Shop, Food, Agency, Events, Blog, Real Estate, Fitness, Education, Photography).
 
 ## Live site
 
