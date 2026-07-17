@@ -145,7 +145,7 @@
 
     // Website request -> posts to the Cloudflare Worker backend.
     // After deploying the Worker, paste its URL here (e.g. https://northstar-requests.your-subdomain.workers.dev).
-    const REQUEST_API = 'REPLACE_WITH_WORKER_URL';
+    const REQUEST_API = 'https://northstar-requests.hs9961984.workers.dev';
     function setReqStatus(message,type=''){const el=$('#reqStatus');el.className=`status ${type}`;el.textContent=message}
     async function sendRequest(){const name=$('#reqName').value.trim();const email=$('#reqEmail').value.trim();const site=$('#reqSite').value.trim();
       if(!name){setReqStatus('Add your name so we know who is asking.','warn');$('#reqName').focus();return}

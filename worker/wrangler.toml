@@ -1,13 +1,11 @@
 name = "northstar-requests"
-main = "worker/requests.js"
+main = "requests.js"
 compatibility_date = "2024-09-23"
 
 # KV namespace for storing submissions.
-# Create it once with:  wrangler kv namespace create REQUESTS
-# then paste the returned id below.
 [[kv_namespaces]]
 binding = "REQUESTS"
-id = "REPLACE_WITH_KV_ID"
+id = "3f73350e898d43688b1e794f3de6836d"
 
 # Optional email forwarding (Cloudflare Email Routing).
 # To enable, add an email binding in the Cloudflare dashboard:
