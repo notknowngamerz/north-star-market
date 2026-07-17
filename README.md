@@ -6,7 +6,6 @@ A local-first marketplace of ready-to-explore website demos. Each template is a 
 
 - `index.html` — the storefront that showcases six website concepts.
 - `templates/` — 24 static demo pages across six brands (Portfolio, SaaS, Shop, Food, Agency, Events).
-- `updates.json` — version manifest used by the optional update-checker demo.
 
 ## Live site
 
