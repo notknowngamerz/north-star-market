@@ -11,6 +11,8 @@
     h1{font-size:24px;letter-spacing:-.04em;margin:0 0 4px}.sub{color:var(--muted);font-size:13px;margin:0 0 18px}
     input{width:100%;height:42px;border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.2);color:var(--ink);padding:0 12px;font:inherit;outline:none;margin-bottom:10px}
     button{cursor:pointer;border:1px solid transparent;border-radius:10px;min-height:42px;padding:0 16px;font-weight:800;background:var(--lime);color:#07111f}
+    button.ghost{background:transparent;border-color:var(--line);color:var(--muted)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
     .status{margin-top:12px;font-size:13px;color:var(--muted)}.req{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:12px;background:rgba(255,255,255,.03)}
     .req b{color:var(--lime)}.req .meta{color:var(--muted);font-size:11px;margin-top:6px}.req .site{margin-top:8px;white-space:pre-wrap}
     .empty{color:var(--muted);font-size:13px;margin-top:14px}
@@ -22,7 +24,10 @@
       <h1>Website Requests</h1>
       <p class="sub">Enter the admin password to view submissions stored in KV.</p>
       <input id="secret" type="password" placeholder="Admin password" autocomplete="off" />
-      <button id="load">View requests</button>
+      <div class="actions">
+        <button id="load">View requests</button>
+        <button id="clear" class="ghost">Clear all</button>
+      </div>
       <div class="status" id="status">No data loaded yet.</div>
       <div id="list"></div>
     </div>
@@ -44,6 +49,20 @@
       } catch (e) { $('#status').textContent = 'Failed: ' + e.message; }
     });
     function escapeHtml(v){return String(v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+    $('#clear').addEventListener('click', async () => {
+      const secret = $('#secret').value.trim();
+      if (!secret) { $('#status').textContent = 'Enter the admin password first.'; return; }
+      if (!confirm('Delete ALL stored requests? This cannot be undone.')) return;
+      $('#status').textContent = 'Clearing…';
+      try {
+        const res = await fetch(`${API}?secret=${encodeURIComponent(secret)}`, { method: 'DELETE' });
+        const data = await res.json();
+        if (!res.ok || !data.ok) { $('#status').textContent = 'Unauthorized or error: ' + (data.error || res.status); return; }
+        $('#status').textContent = `Cleared ${data.cleared} request(s).`;
+        $('#list').innerHTML = '';
+      } catch (e) { $('#status').textContent = 'Failed: ' + e.message; }
+    });
   </script>
 </body>
 </html>
