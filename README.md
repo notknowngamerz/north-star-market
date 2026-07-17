@@ -42,7 +42,7 @@ Visitor "Request a website" submissions are stored by a small Cloudflare Worker 
 
 ### Automatic deploys
 
-Pushing to `main` runs `.github/workflows/deploy-worker.yml`, which deploys the Worker using a `CF_API_TOKEN` secret (create one with Workers edit rights in the Cloudflare dashboard and add it to the repo's Secrets).
+Pushing to `main` (on `worker/**` changes) runs `.github/workflows/deploy-worker.yml`, which deploys the Worker using the `CF_API_TOKEN` repo secret (already configured). The `ADMIN_SECRET` is a Cloudflare Worker secret (set via `wrangler secret put`), so it is preserved across deploys.
 
 ### Viewing submissions
 
