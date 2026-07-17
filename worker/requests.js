@@ -7,6 +7,8 @@
 
 const OWNER_EMAIL = "hs9961984@gmail.com";
 const ALLOWED_ORIGIN = "https://notknowngamerz.github.io";
+// Admin token for viewing submissions. Change this to something only you know.
+const ADMIN_SECRET = "northstar-admin-2026";
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -15,7 +17,7 @@ function json(body, status = 200) {
       "content-type": "application/json; charset=utf-8",
       "access-control-allow-origin": ALLOWED_ORIGIN,
       "access-control-allow-headers": "content-type",
-      "access-control-allow-methods": "POST, OPTIONS",
+      "access-control-allow-methods": "GET, POST, OPTIONS",
     },
   });
 }
@@ -27,6 +29,21 @@ function isValidEmail(value) {
 async function handleRequest(request) {
   if (request.method === "OPTIONS") {
     return json({ ok: true });
+  }
+
+  if (request.method === "GET") {
+    const url = new URL(request.url);
+    if (url.searchParams.get("secret") !== ADMIN_SECRET) {
+      return json({ ok: false, error: "Unauthorized" }, 401);
+    }
+    const indexRaw = await REQUESTS.get("index");
+    const index = indexRaw ? JSON.parse(indexRaw) : [];
+    const items = [];
+    for (const entry of index) {
+      const full = await REQUESTS.get("req:" + entry.id);
+      if (full) items.push(JSON.parse(full));
+    }
+    return json({ ok: true, count: items.length, items });
   }
 
   if (request.method !== "POST") {
@@ -83,6 +100,7 @@ async function handleRequest(request) {
         to: OWNER_EMAIL,
         subject,
         text: body,
+        replyTo: email,
       });
     } catch {
       // Email is best-effort; storage already succeeded.

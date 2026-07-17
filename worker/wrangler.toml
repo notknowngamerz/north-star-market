@@ -7,7 +7,9 @@ compatibility_date = "2024-09-23"
 binding = "REQUESTS"
 id = "3f73350e898d43688b1e794f3de6836d"
 
-# Optional email forwarding (Cloudflare Email Routing).
-# To enable, add an email binding in the Cloudflare dashboard:
-#   Workers -> your worker -> Settings -> Bindings -> Add -> Send email
-# and name it SEND_EMAIL. Until then, submissions are still stored in KV.
+# Email forwarding (Cloudflare Email Routing).
+# The destination address must be verified in Email Routing first:
+#   dash.cloudflare.com -> Email Routing -> add destination hs9961984@gmail.com -> confirm code.
+[[send_email]]
+name = "SEND_EMAIL"
+destination_address = "hs9961984@gmail.com"
