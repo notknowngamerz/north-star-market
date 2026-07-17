@@ -18,33 +18,6 @@ https://notknowngamerz.github.io/north-star-market/
 
 - All demos are tagged **Demo** and are free to explore locally. There is no buying flow in this testing version.
 - To run locally, serve the folder over `localhost` (e.g. `python -m http.server`) rather than opening the file directly, so relative links and `fetch` work.
+- **Contact:** visitors email requests directly to `hs9961984@gmail.com` (no backend/form processing).
 
-## Request backend (Cloudflare Worker)
-
-Visitor "Request a website" submissions are stored by a small Cloudflare Worker (`worker/requests.js`) and forwarded to the owner's email.
-
-### Deploy (one-time)
-
-1. Authenticate (opens your browser):
-   ```
-   npx wrangler login
-   ```
-2. Create the KV namespace and copy the returned id into `worker/wrangler.toml`:
-   ```
-   npx wrangler kv namespace create REQUESTS
-   ```
-3. Deploy:
-   ```
-   cd worker
-   npx wrangler deploy
-   ```
-4. Copy the Worker URL (e.g. `https://northstar-requests.<subdomain>.workers.dev`) into `REQUEST_API` in `index.html`.
-
-### Automatic deploys
-
-Pushing to `main` (on `worker/**` changes) runs `.github/workflows/deploy-worker.yml`, which deploys the Worker using the `CF_API_TOKEN` repo secret (already configured). The `ADMIN_SECRET` is a Cloudflare Worker secret (set via `wrangler secret put`), so it is preserved across deploys.
-
-### Viewing submissions
-
-Stored in the KV namespace (`req:<id>` keys, plus an `index` list). Optionally configure a `SEND_EMAIL` binding in the Cloudflare dashboard to also email each submission to `hs9961984@gmail.com`.
 
